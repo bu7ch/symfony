@@ -13,31 +13,31 @@ class AppFixtures extends Fixture
         $a1 = new Animal();
         $a1->setName('Chien')
           ->setDescription("Un animal domestique")
-          ->SetImage('dog.png');
+          ->SetImage('dog.jpeg');
         $manager->persist($a1);
 
         $a2 = new Animal();
         $a2->setName('Cochon')
           ->setDescription("Un animal domestique")
-          ->SetImage('pig.png');
+          ->SetImage('pig.jpeg');
         $manager->persist($a2);
 
         $a3 = new Animal();
         $a3->setName('Serpent')
           ->setDescription("Un animal domestique")
-          ->SetImage('snake.png');
+          ->SetImage('snake.jpeg');
         $manager->persist($a3);
 
         $a4 = new Animal();
         $a4->setName('Lion')
           ->setDescription("Un animal domestique")
-          ->SetImage('lion.png');
+          ->SetImage('lion.jpeg');
         $manager->persist($a4);
 
         $a5 = new Animal();
         $a5->setName('crocodile')
           ->setDescription("Un animal domestique")
-          ->SetImage('crocodile.png');
+          ->SetImage('crocodile.jpeg');
         $manager->persist($a5);
 
         $manager->flush();

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Welcome!
+			{% block title %}Zoo App
 			{% endblock %}
 		</title>
 		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -20,6 +20,7 @@
 		{% endblock %}
 	</head>
 	<body>
+		<a href="{{path("animals")}}">Animaux</a>
 		{% block body %}{% endblock %}
 	</body>
 </html>
