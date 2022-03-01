@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Animal;
 use App\Entity\Famille;
+use App\Entity\Continent;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -11,6 +12,23 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        $europe =new Continent();
+        $europe->setLibelle('Europe');
+        $manager->persist($europe);
+
+        $afrique =new Continent();
+        $afrique->setLibelle('Afrique');
+        $manager->persist($afrique);
+
+        $amerique =new Continent();
+        $amerique->setLibelle('Amérique');
+        $manager->persist($amerique);
+
+        $oceanie =new Continent();
+        $oceanie->setLibelle('Océanie');
+        $manager->persist($oceanie);
+
+
         $c1 = new Famille();
         $c1->setLibelle('Animaux vertébrés')
           ->setDescription('Mammifère');
@@ -33,6 +51,10 @@ class AppFixtures extends Fixture
           ->SetImage('dog.jpeg')
           ->setPoids(20)
           ->setFamille($c1)
+          ->addContinent($europe)
+          ->addContinent($afrique)
+          ->addContinent($amerique)
+          ->addContinent($oceanie)
           ->setDangerosite(false);
         $manager->persist($a1);
 
@@ -42,6 +64,9 @@ class AppFixtures extends Fixture
           ->SetImage('pig.jpeg')
           ->setPoids(43)
           ->setFamille($c1)
+          ->addContinent($afrique)
+          ->addContinent($europe)
+          ->addContinent($oceanie)
           ->setDangerosite(false);
         $manager->persist($a2);
 
@@ -51,6 +76,9 @@ class AppFixtures extends Fixture
           ->SetImage('snake.jpeg')
           ->setPoids(13)
           ->setFamille($c2)
+          ->addContinent($amerique)
+          ->addContinent($oceanie)
+          ->addContinent($europe)
           ->setDangerosite(true);
         $manager->persist($a3);
 
@@ -59,6 +87,9 @@ class AppFixtures extends Fixture
           ->setDescription("Un animal domestique")
           ->SetImage('lion.jpeg')
           ->setPoids(86)
+          ->addContinent($afrique)
+          ->addContinent($oceanie)
+          ->addContinent($amerique)
           ->setFamille($c1)
           ->setDangerosite(true);
         $manager->persist($a4);
@@ -69,6 +100,9 @@ class AppFixtures extends Fixture
           ->SetImage('crocodile.jpeg')
           ->setPoids(234)
           ->setFamille($c2)
+          ->addContinent($oceanie)
+          ->addContinent($amerique)
+          ->addContinent($afrique)
           ->setDangerosite(true);
         $manager->persist($a5);
 

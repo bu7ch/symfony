@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Continents
+{% endblock %}
+
+{% block body %}
+	<div>{{continent.libelle}}</div>
+	<div class="row">
+		<ul>
+			{% for animal in continent.animaux %}
+				<li><img src="{{asset('images/'~ animal.image)}}" alt=" " class="img-fluid" width="200px">
+				</li>
+				<a href="{{path('show_continent', {'id': animal.id})}}">{{animal.name}}</a>
+				<div>{{animal.description}}</div>
+
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}

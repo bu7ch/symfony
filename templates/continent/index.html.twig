@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Continents
+{% endblock %}
+
+{% block body %}
+	{% for continent in continents %}
+		<h2 class="font-sans text-4xl mb-8 text-black">{{continent.libelle}}</h2>
+
+	{% endfor %}
+
+{% endblock %}
