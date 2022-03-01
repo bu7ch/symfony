@@ -6,7 +6,9 @@
 			<div class="bg-gradient-to-t from-green-400 to-blue-500 shadow-2xl m-8 p-8 h-3/5 w-1/6 rounded flex flex-col
 															      item-center justify-center cursor-pointer">
 				<h2 class="font-sans text-4xl mb-8 text-white">
+        <a href="{{path('show_animal', {id:animal.id})}}">
 					{{animal.name}}
+        </a>
 				</h2>
 				<p class="font-sans mb-8 text-white">{{animal.description}}</p>
 				<img src="{{asset('images/'~ animal.image)}}" width="200px" alt="" class="rounded shadow-lg">

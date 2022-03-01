@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="flex flex-row item-center justify-center h-screen">
+		<div class="bg-gradient-to-t from-green-400 to-blue-500 shadow-2xl m-8 p-8 h-3/5 w-1/6 rounded flex flex-col
+															  item-center justify-center cursor-pointer">
+			<h2 class="font-sans text-4xl mb-8 text-white">
+				{{animal.name}}
+			</h2>
+			<p class="font-sans mb-8 text-white">{{animal.description}}</p>
+			<img src="{{asset('images/'~ animal.image)}}" width="200px" alt="" class="rounded shadow-lg">
+			<p class="font-sans mb-8 text-white">{{animal.poids}}
+				kg</p>
+			<div class="font-sans mb-8 text-white">
+				Dangerosité :
+				{% if animal.dangerosite %}
+					<span class="bg-red-500">oui</span>
+				{% else %}
+					<span class="bg-green-500">non</span>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
