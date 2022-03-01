@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Animal;
+use App\Entity\Famille;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -10,11 +11,28 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        $c1 = new Famille();
+        $c1->setLibelle('Animaux vertébrés')
+          ->setDescription('Mammifère');
+          $manager->persist($c1);
+
+        $c2 = new Famille();
+        $c2->setLibelle('Reptiles')
+          ->setDescription('Rampant');
+          $manager->persist($c2);
+
+        $c3 = new Famille();
+        $c3->setLibelle('Poissons')
+          ->setDescription('Ovipare');
+          $manager->persist($c3);
+
+
         $a1 = new Animal();
         $a1->setName('Chien')
           ->setDescription("Un animal domestique")
           ->SetImage('dog.jpeg')
           ->setPoids(20)
+          ->setFamille($c1)
           ->setDangerosite(false);
         $manager->persist($a1);
 
@@ -23,6 +41,7 @@ class AppFixtures extends Fixture
           ->setDescription("Un animal domestique")
           ->SetImage('pig.jpeg')
           ->setPoids(43)
+          ->setFamille($c1)
           ->setDangerosite(false);
         $manager->persist($a2);
 
@@ -31,6 +50,7 @@ class AppFixtures extends Fixture
           ->setDescription("Un animal domestique")
           ->SetImage('snake.jpeg')
           ->setPoids(13)
+          ->setFamille($c2)
           ->setDangerosite(true);
         $manager->persist($a3);
 
@@ -39,6 +59,7 @@ class AppFixtures extends Fixture
           ->setDescription("Un animal domestique")
           ->SetImage('lion.jpeg')
           ->setPoids(86)
+          ->setFamille($c1)
           ->setDangerosite(true);
         $manager->persist($a4);
 
@@ -47,6 +68,7 @@ class AppFixtures extends Fixture
           ->setDescription("Un animal domestique")
           ->SetImage('crocodile.jpeg')
           ->setPoids(234)
+          ->setFamille($c2)
           ->setDangerosite(true);
         $manager->persist($a5);
 
