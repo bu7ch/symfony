@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnes
+{% endblock %}
+
+{% block body %}
+	<h1>Liste des personnes</h1>
+	{% for personne in personnes %}
+		<h2>{{ personne.name}}</h2>
+		{% for dispose in personne.disposes %}
+			<h3>possède :
+				{{ dispose.nb}}
+				{{ dispose.animal.name}}
+			</h3>
+      <img src="{{asset('images/'~ dispose.animal.image)}}" alt="" class="w-1/4 rounded shadow-2xl">
+		{% endfor %}
+
+	{% endfor %}
+{% endblock %}
